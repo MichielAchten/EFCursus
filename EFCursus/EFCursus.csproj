@@ -81,7 +81,9 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Opleidingen.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagram3.cd" />
     <None Include="Opleidingen.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Opleidingen.edmx</DependentUpon>
