@@ -10,7 +10,78 @@ namespace EFCursus
     {
         static void Main(string[] args)
         {
+            //entity toevoegen met een associatie naar een bestaande entity vanuit de één kant
+            //var docent5 = new Docent { Voornaam = "Voornaam5", Familienaam = "Familienaam5", Wedde = 5 };
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    var campus1 = entities.Campussen.Find(1);
+            //    if (campus1 != null)
+            //    {
+            //        campus1.Docenten.Add(docent5);
+            //        entities.SaveChanges();
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("Campus 1 niet gevonden");
+            //    }
+            //}
+
+            //entity toevoegen met een associatie naar een bestaande entity vanuit de veel kant (entity koppelen met de foreign key property)
+            //var docent4 = new Docent { Voornaam = "Voornaam4", Familienaam = "Familienaam4", Wedde = 4, CampusNr = 1 };
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    entities.Docenten.Add(docent4);
+            //    entities.SaveChanges();
+            //}
+
+            //entity toevoegen met een associatie naar een bestaande entity vanuit de veel kant (entity lezen en associëren aan de nieuwe entity)
+            //var docent3 = new Docent { Voornaam = "Voornaam3", Familienaam = "Familienaam3", Wedde = 3 };
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    var campus1 = entities.Campussen.Find(1);
+            //    if (campus1 != null)
+            //    {
+            //        entities.Docenten.Add(docent3);
+            //        docent3.Campus = campus1;
+            //        entities.SaveChanges();
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("Campus 1 niet gevonden");
+            //    }
+            //}
+
+            //entities met nieuwe geassocieerde entities toevoegen
+            //var campus5 = new Campus { Naam = "Naam5", Straat = "Straat5", HuisNr = "5", PostCode = "5555", Gemeente = "Gemeente5" };
+            //var docent2 = new Docent { Voornaam = "Voornaam2", Familienaam = "Familienaam2", Wedde = 2 };
+            //docent2.Campus = campus5;
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    entities.Docenten.Add(docent2);
+            //    entities.SaveChanges();
+            //}
             
+            //entities met nieuwe geassocieerde entities toevoegen
+            //var campus4 = new Campus { Naam = "Naam4", Straat = "Straat4", HuisNr = "4", PostCode = "4444", Gemeente = "Gemeente4" };
+            //var docent1 = new Docent { Voornaam = "Voornaam1", Familienaam = "Familienaam1", Wedde = 1 };
+            //campus4.Docenten.Add(docent1);
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    entities.Campussen.Add(campus4);
+            //    entities.SaveChanges();
+            //}
+            
+            //meerdere entities toevoegen
+            //var campus2 = new Campus { Naam = "Naam2", Straat = "Straat2", HuisNr = "2", PostCode = "2222", Gemeente = "Gemeente2" };
+            //var campus3 = new Campus { Naam = "Naam3", Straat = "Straat3", HuisNr = "3", PostCode = "3333", Gemeente = "Gemeente3" };
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    entities.Campussen.Add(campus2);
+            //    entities.Campussen.Add(campus3);
+            //    entities.SaveChanges();
+            //    Console.WriteLine(campus2.CampusNr);
+            //    Console.WriteLine(campus3.CampusNr);
+            //}
 
             //query en ToList() in één method
         //    Program program = new Program();
