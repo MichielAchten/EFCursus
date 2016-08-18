@@ -9,9 +9,10 @@ namespace EFCursus
 {
     class Program
     {
+        static void Main(string[] args)
+        {
+
         //transactions
-        //static void Main(string[] args)
-        //{
         //    try
         //    {
         //        Console.Write("Artikel nr.: ");
