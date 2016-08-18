@@ -10,6 +10,128 @@ namespace EFCursus
     {
         static void Main(string[] args)
         {
+            
+            
+            //associaties wijzigen aan de veel kant
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    var docent1 = entities.Docenten.Find(1);
+            //    if (docent1 != null)
+            //    {
+            //        var campus3 = entities.Campussen.Find(3);
+            //        if (campus3 != null)
+            //        {
+            //            campus3.Docenten.Add(docent1);
+            //            entities.SaveChanges();
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Campus 3 niet gevonden");
+            //        }
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("Docent 1 niet gevonden");
+            //    }
+            //}
+            
+            //associatie wijzigen aan de veel kant:
+            //te associëren entity associëren met de foreign key property
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    var docent1 = entities.Docenten.Find(1);
+            //    if (docent1 != null)
+            //    {
+            //        docent1.CampusNr = 2;
+            //        entities.SaveChanges();
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("Docent 1 niet gevonden");
+            //    }
+            //}
+            
+            //associatie wijzigen aan veel kant:
+            //te associëren entity lezen en associëren aan de te wijzigen entity
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    var docent1 = entities.Docenten.Find(1);
+            //    if (docent1 != null)
+            //    {
+            //        var campus6 = entities.Campussen.Find(6);
+            //        if (campus6 != null)
+            //        {
+            //            docent1.Campus = campus6;
+            //            entities.SaveChanges();
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Campus 6 niet gevonden");
+            //        }
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("Docent 1 niet gevonden");
+            //    }
+            //}
+            
+            //entities wijzigen die je indirect gelezen hebt met associaties
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    var campus1 = entities.Campussen.Find(1);
+            //    if (campus1 != null)
+            //    {
+            //        foreach (var docent in campus1.Docenten)
+            //        {
+            //            docent.Opslag(10m);
+            //        }
+            //        entities.SaveChanges();
+            //    }
+            //}
+            
+            //meerdere entities lezen en slechts enkele daarvan wijzigen
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    var docent1 = entities.Docenten.Find(1);
+            //    var docent2 = entities.Docenten.Find(2);
+            //    docent2.Opslag(10m);
+            //    entities.SaveChanges();
+            //}
+            
+            //één entity wijzigen
+            //Console.Write("DocentNr.: ");
+            //int docentNr;
+            //if (int.TryParse(Console.ReadLine(), out docentNr))
+            //{
+            //    using (var entities = new OpleidingenEntities())
+            //    {
+            //        var docent = entities.Docenten.Find(docentNr);
+            //        if (docent != null)
+            //        {
+            //            Console.WriteLine("Wedde:{0}", docent.Wedde);
+            //            Console.Write("Bedrag: ");
+            //            decimal bedrag;
+            //            if (decimal.TryParse(Console.ReadLine(), out bedrag))
+            //            {
+            //                docent.Opslag(bedrag);
+            //                entities.SaveChanges();
+            //            }
+            //            else
+            //            {
+            //                Console.WriteLine("Tik een getal");
+            //            }
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Docent niet gevonden");
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Tik een getal");
+            //}
+            
             //entity toevoegen met een associatie naar een bestaande entity vanuit de één kant
             //var docent5 = new Docent { Voornaam = "Voornaam5", Familienaam = "Familienaam5", Wedde = 5 };
             //using (var entities = new OpleidingenEntities())
