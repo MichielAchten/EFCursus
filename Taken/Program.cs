@@ -10,7 +10,55 @@ namespace Taken
     {
         static void Main(string[] args)
         {
+            //1.5 klant verwijderen
+            //Console.Write("klantnummer: ");
+            //int klantNr;
+            //if (int.TryParse(Console.ReadLine(), out klantNr))
+            //{
+            //    using (var entities = new BankEntities())
+            //    {
+            //        var klant = entities.Klanten.Find(klantNr);
+            //        if (klant != null)
+            //        {
 
+            //            if (klant.Rekeningen.Count == 0)
+            //            {
+            //                entities.Klanten.Remove(klant);
+            //                entities.SaveChanges();
+            //            }
+            //            else
+            //            {
+            //                Console.WriteLine("Klant heeft nog rekeningen, dus kan niet verwijderd worden");
+            //            }
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Klant niet gevonden");
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Tik een getal");
+            //}
+            ////eerst klant toevoegen
+            //var klant = new Klant { KlantNr = 6, Voornaam = "NieuweKlant1" };
+            //using (var entities = new BankEntities())
+            //{
+            //    entities.Klanten.Add(klant);
+            //    entities.SaveChanges();
+            //}
+            ////rekening verwijderen
+            //string rekeningNr = "333-3333333-11";
+            //using (var entities = new BankEntities())
+            //{
+            //    var rekening = entities.Rekeningen.Find(rekeningNr);
+            //    if (rekening != null)
+            //    {
+            //        entities.Rekeningen.Remove(rekening);
+            //        entities.SaveChanges();
+            //    }
+            //}
 
             //1.4 storten
             //using (var entities = new BankEntities())

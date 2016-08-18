@@ -10,7 +10,29 @@ namespace EFCursus
     {
         static void Main(string[] args)
         {
-            
+            //entitie verwijderen
+            //Console.Write("Nummer docent: ");
+            //int docentNr;
+            //if (int.TryParse(Console.ReadLine(), out docentNr))
+            //{
+            //    using (var entities = new OpleidingenEntities())
+            //    {
+            //        var docent = entities.Docenten.Find(docentNr);
+            //        if (docent != null)
+            //        {
+            //            entities.Docenten.Remove(docent);
+            //            entities.SaveChanges();
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Docent niet gevonden");
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Tik een getal");
+            //}
             
             //associaties wijzigen aan de veel kant
             //using (var entities = new OpleidingenEntities())
