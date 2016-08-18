@@ -10,6 +10,21 @@ namespace Taken
     {
         static void Main(string[] args)
         {
+            //1.6 overschrijven
+            Console.Write("Van rekening: ");
+            var vanRekening = int.Parse(Console.ReadLine());
+            Console.Write("Naar Rekening: ");
+            var naarRekening = int.Parse(Console.ReadLine());
+            Console.Write("Bedrag: ");
+            var bedrag = decimal.Parse(Console.ReadLine());
+            new Program().Overschrijven(vanRekening, naarRekening, bedrag);
+        }
+    
+        public void Overschrijven(int vanRekening, int naarRekening, decimal bedrag)
+        {
+
+            
+            
             //1.5 klant verwijderen
             //Console.Write("klantnummer: ");
             //int klantNr;
