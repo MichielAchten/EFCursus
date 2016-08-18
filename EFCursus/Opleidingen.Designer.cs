@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'c:\users\net04.vdabgenk\documents\visual studio 2013\Projects\EFCursus\EFCursus\Opleidingen.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\net04.VDABGENK\Documents\Visual Studio 2013\Projects\EFCursus\EFCursus\Opleidingen.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

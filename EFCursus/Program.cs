@@ -3,13 +3,70 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace EFCursus
 {
     class Program
     {
-        static void Main(string[] args)
-        {
+        //transactions
+        //static void Main(string[] args)
+        //{
+        //    try
+        //    {
+        //        Console.Write("Artikel nr.: ");
+        //        var artikelNr = int.Parse(Console.ReadLine());
+        //        Console.Write("Van magazijn nr.: ");
+        //        var vanMagazijnNr = int.Parse(Console.ReadLine());
+        //        Console.Write("Naar magazijn nr.: ");
+        //        var naarMagazijnNr = int.Parse(Console.ReadLine());
+        //        Console.Write("Aantal stuks: ");
+        //        var aantalStuks = int.Parse(Console.ReadLine());
+        //        new Program().VoorraadTransfer(artikelNr, vanMagazijnNr, naarMagazijnNr, aantalStuks);
+        //    }
+        //    catch (FormatException)
+        //    {
+        //        Console.WriteLine("Tik een getal");
+        //    }
+        //}
+        //void VoorraadTransfer(int artikelNr, int vanMagazijnNr, int naarMagazijnNr, int aantalStuks)
+        //{
+        //    var transactionOptions = new TransactionOptions { IsolationLevel = IsolationLevel.RepeatableRead }; //bijgevoegd
+        //    using (var transactionScope = new TransactionScope(TransactionScopeOption.Required, transactionOptions))    //bijgevoegd
+        //    {
+        //        using (var entities = new OpleidingenEntities())
+        //        {
+        //            var vanVoorraad = entities.Voorraden.Find(vanMagazijnNr, artikelNr);
+        //            if (vanVoorraad != null)
+        //            {
+        //                if (vanVoorraad.AantalStuks >= aantalStuks)
+        //                {
+        //                    vanVoorraad.AantalStuks -= aantalStuks;
+        //                    var naarVoorraad = entities.Voorraden.Find(naarMagazijnNr, artikelNr);
+        //                    if (naarVoorraad != null)
+        //                    {
+        //                        naarVoorraad.AantalStuks += aantalStuks;
+        //                    }
+        //                    else
+        //                    {
+        //                        naarVoorraad = new Voorraad { ArtikelNr = artikelNr, MagazijnNr = naarMagazijnNr, AantalStuks = aantalStuks };
+        //                        entities.Voorraden.Add(naarVoorraad);
+        //                    }
+        //                    entities.SaveChanges();
+        //                    transactionScope.Complete();    //bijgevoegd
+        //                }
+        //                else
+        //                {
+        //                    Console.WriteLine("Te weinig voorraad voor transfer");
+        //                }
+        //            }
+        //            else
+        //            {
+        //                Console.WriteLine("Artikel niet gevonden in magazijn {0}", vanMagazijnNr);
+        //            }
+        //        }
+        //    }
+
             //entitie verwijderen
             //Console.Write("Nummer docent: ");
             //int docentNr;
