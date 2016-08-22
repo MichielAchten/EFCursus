@@ -20,5 +20,19 @@ namespace Taken
         public string Soort { get; set; }
     
         public virtual Klant Klant { get; set; }
+
+        //1.6 overschrijven: voorbeeldoplossing (zie ook Program)
+        public void Overschrijven(Rekening naarRekening, decimal bedrag)
+        {
+            if (this.Saldo < bedrag)
+            {
+                throw new SaldoOntoereikendException();
+            }
+            else
+            {
+                this.Saldo -= bedrag;
+                naarRekening.Saldo += bedrag;
+            }
+        }
     }
 }
