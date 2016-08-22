@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,47 @@ namespace EFCursus
     {
         static void Main(string[] args)
         {
+            //voorbeeld optimistic record locking
+            try
+            {
+                Console.Write("Artikel nr.: ");
+                var artikelNr = int.Parse(Console.ReadLine());
+                Console.Write("Magazijn nr.: ");
+                var magazijnNr = int.Parse(Console.ReadLine());
+                Console.Write("Aantal stuks toevoegen: ");
+                var aantalStuks = int.Parse(Console.ReadLine());
+                new Program().VoorraadBijvulling(artikelNr, magazijnNr, aantalStuks);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Tik een getal");
+            }
+        }
+
+        public void VoorraadBijvulling(int artikelNr, int magazijnNr, int aantalStuks)
+        {
+            using (var entities = new OpleidingenEntities())
+            {
+                var voorraad = entities.Voorraden.Find(magazijnNr, artikelNr);
+                if (voorraad != null)
+                {
+                    voorraad.AantalStuks += aantalStuks;
+                    Console.WriteLine("Pas nu de voorraad aan met de Server Explorer, druk daarna op enter");
+                    Console.ReadLine();
+                    try
+                    {
+                        entities.SaveChanges();
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        Console.WriteLine("Voorraad werd door andere applicatie aangepast");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Voorraad niet gevonden");
+                }
+            }
 
         //transactions
         //    try
