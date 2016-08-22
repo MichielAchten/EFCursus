@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,60 +12,124 @@ namespace Taken
     {
         static void Main(string[] args)
         {
-            //1.6 overschrijven: voorbeeldoplossing (zie ook Rekening)
-            Console.Write("RekeningNr. van rekening: ");
-            var vanRekeningNr = Console.ReadLine();
-            Console.Write("RekeningNr. naar rekening: ");
-            var naarRekeningNr = Console.ReadLine();
+            //1.7 klant wijzigen: voorbeeldoplossing
+            Console.Write("KlantNr: ");
             try
             {
-                Console.Write("Bedrag: ");
-                var bedrag = decimal.Parse(Console.ReadLine());
-                if (bedrag <= decimal.Zero)
+                var klantNr = int.Parse(Console.ReadLine());
+                using (var entities = new BankEntities())
                 {
-                    Console.WriteLine("Tik een positief bedrag");
-                }
-                else
-                {
-                    var transactionOptions = new TransactionOptions { IsolationLevel = IsolationLevel.RepeatableRead };
-                    using (var transactionScope = new TransactionScope(TransactionScopeOption.Required, transactionOptions))
+                    var klant = entities.Klanten.Find(klantNr);
+                    if (klant == null)
                     {
-                        using (var entities = new BankEntities())
-                        {
-                            var vanRekening = entities.Rekeningen.Find(vanRekeningNr);
-                            if (vanRekening == null)
-                            {
-                                Console.WriteLine("Van rekening niet gevonden");
-                            }
-                            else
-                            {
-                                var naarRekening = entities.Rekeningen.Find(naarRekeningNr);
-                                if (naarRekening == null)
-                                {
-                                    Console.WriteLine("Naar rekening niet gevonden");
-                                }
-                                else
-                                {
-                                    try
-                                    {
-                                        vanRekening.Overschrijven(naarRekening, bedrag);
-                                        entities.SaveChanges();
-                                        transactionScope.Complete();
-                                    }
-                                    catch (SaldoOntoereikendException)
-                                    {
-                                        Console.WriteLine("Saldo ontoereikend");
-                                    }
-                                }
-                            }
-                        }
+                        Console.WriteLine("Klant niet gevonden");
+                    }
+                    else
+                    {
+                        Console.Write("Voornaam: ");
+                        klant.Voornaam = Console.ReadLine();
+                        entities.SaveChanges();
                     }
                 }
             }
+            catch (DbUpdateConcurrencyException)
+            {
+                Console.WriteLine("Een andere gebruiker wijzigde deze klant");
+            }
             catch (FormatException)
             {
-                Console.WriteLine("Tik een bedrag");
+                Console.WriteLine("Tik een getal");
             }
+            
+            //1.7 klant wijzigen: eigen oplossing
+            //Console.Write("KlantNr.: ");
+            //try
+            //{
+            //    var klantNr = int.Parse(Console.ReadLine());
+            //    using (var entities = new BankEntities())
+            //    {
+            //        var klant = entities.Klanten.Find(klantNr);
+            //        if (klant != null)
+            //        {
+            //            Console.Write("Gecorigeerde naam klant: ");
+            //            var nieuweNaam = Console.ReadLine();
+            //            klant.Voornaam = nieuweNaam;
+            //            Console.WriteLine("Pas nu de naam aan in de ServerExplorer, druk daarna op Enter");
+            //            Console.ReadLine();
+            //            try
+            //            {
+            //                entities.SaveChanges();
+            //            }
+            //            catch (DbUpdateConcurrencyException)
+            //            {
+            //                Console.WriteLine("Een andere gebruiker wijzigde deze klant");
+            //            }
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Klant niet gevonden");
+            //        }
+            //    }
+            //}
+            //catch (FormatException)
+            //{
+            //    Console.WriteLine("Tik een getal");
+            //}
+            
+            //1.6 overschrijven: voorbeeldoplossing (zie ook Rekening)
+            //Console.Write("RekeningNr. van rekening: ");
+            //var vanRekeningNr = Console.ReadLine();
+            //Console.Write("RekeningNr. naar rekening: ");
+            //var naarRekeningNr = Console.ReadLine();
+            //try
+            //{
+            //    Console.Write("Bedrag: ");
+            //    var bedrag = decimal.Parse(Console.ReadLine());
+            //    if (bedrag <= decimal.Zero)
+            //    {
+            //        Console.WriteLine("Tik een positief bedrag");
+            //    }
+            //    else
+            //    {
+            //        var transactionOptions = new TransactionOptions { IsolationLevel = IsolationLevel.RepeatableRead };
+            //        using (var transactionScope = new TransactionScope(TransactionScopeOption.Required, transactionOptions))
+            //        {
+            //            using (var entities = new BankEntities())
+            //            {
+            //                var vanRekening = entities.Rekeningen.Find(vanRekeningNr);
+            //                if (vanRekening == null)
+            //                {
+            //                    Console.WriteLine("Van rekening niet gevonden");
+            //                }
+            //                else
+            //                {
+            //                    var naarRekening = entities.Rekeningen.Find(naarRekeningNr);
+            //                    if (naarRekening == null)
+            //                    {
+            //                        Console.WriteLine("Naar rekening niet gevonden");
+            //                    }
+            //                    else
+            //                    {
+            //                        try
+            //                        {
+            //                            vanRekening.Overschrijven(naarRekening, bedrag);
+            //                            entities.SaveChanges();
+            //                            transactionScope.Complete();
+            //                        }
+            //                        catch (SaldoOntoereikendException)
+            //                        {
+            //                            Console.WriteLine("Saldo ontoereikend");
+            //                        }
+            //                    }
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
+            //catch (FormatException)
+            //{
+            //    Console.WriteLine("Tik een bedrag");
+            //}
             
             //1.6 overschrijven: eigen oplossing
         //    try
