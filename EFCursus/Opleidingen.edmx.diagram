@@ -9,6 +9,13 @@
         <EntityTypeShape EntityType="OpleidingenModel.Docent" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="OpleidingenModel.FK__Docenten__Campus__1273C1CD" ManuallyRouted="false" />
         <EntityTypeShape EntityType="OpleidingenModel.Voorraad" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="OpleidingenModel.Boek" Width="1.5" PointX="7.125" PointY="2" />
+        <EntityTypeShape EntityType="OpleidingenModel.BoekCursus" Width="1.5" PointX="9.75" PointY="2" />
+        <EntityTypeShape EntityType="OpleidingenModel.Cursus" Width="1.5" PointX="7.375" PointY="4.375" />
+        <AssociationConnector Association="OpleidingenModel.FK__BoekenCur__BoekN__4D94879B" />
+        <AssociationConnector Association="OpleidingenModel.FK__BoekenCur__Cursu__4E88ABD4" />
+        <EntityTypeShape EntityType="OpleidingenModel.Cursist" Width="1.5" PointX="3.625" PointY="4.25" />
+        <AssociationConnector Association="OpleidingenModel.FK__Cursisten__Mento__52593CB8" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

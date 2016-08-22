@@ -12,47 +12,152 @@ namespace EFCursus
     {
         static void Main(string[] args)
         {
-            //voorbeeld optimistic record locking
-            try
-            {
-                Console.Write("Artikel nr.: ");
-                var artikelNr = int.Parse(Console.ReadLine());
-                Console.Write("Magazijn nr.: ");
-                var magazijnNr = int.Parse(Console.ReadLine());
-                Console.Write("Aantal stuks toevoegen: ");
-                var aantalStuks = int.Parse(Console.ReadLine());
-                new Program().VoorraadBijvulling(artikelNr, magazijnNr, aantalStuks);
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("Tik een getal");
-            }
-        }
+            //associaties (van een entity class naar zichzelf)
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    var query = from cursist in entities.Cursisten
+            //                where cursist.Mentor == null
+            //                orderby cursist.Voornaam, cursist.Familienaam
+            //                select cursist;
+            //    foreach (var cursist in query)
+            //    {
+            //        Console.WriteLine("{0} {1}", cursist.Voornaam, cursist.Familienaam);
+            //    }
+            //}
 
-        public void VoorraadBijvulling(int artikelNr, int magazijnNr, int aantalStuks)
-        {
-            using (var entities = new OpleidingenEntities())
-            {
-                var voorraad = entities.Voorraden.Find(magazijnNr, artikelNr);
-                if (voorraad != null)
-                {
-                    voorraad.AantalStuks += aantalStuks;
-                    Console.WriteLine("Pas nu de voorraad aan met de Server Explorer, druk daarna op enter");
-                    Console.ReadLine();
-                    try
-                    {
-                        entities.SaveChanges();
-                    }
-                    catch (DbUpdateConcurrencyException)
-                    {
-                        Console.WriteLine("Voorraad werd door andere applicatie aangepast");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Voorraad niet gevonden");
-                }
-            }
+            //associaties (veel op veel associaties met associatie-informatie): voorbeeld 2
+            //var nieuwBoek = new Boek() { ISBNNr = "0-201-70431-5", Titel = "Modern C++ Design" };
+            //var transactionOptions = new TransactionOptions { IsolationLevel = IsolationLevel.Serializable };
+            //using (var transactionScope = new TransactionScope(TransactionScopeOption.Required, transactionOptions))
+            //{
+            //    using (var entities = new OpleidingenEntities())
+            //    {
+            //        var query = from cursus in entities.Cursussen.Include("BoekenCursussen")
+            //                    where cursus.Naam == "C++"
+            //                    select new { Cursus = cursus, HoogsteVolgNr = cursus.BoekenCursussen.Max(boekCursus => boekCursus.VolgNr) };
+            //        var queryResult = query.FirstOrDefault();
+            //        if (queryResult != null)
+            //        {
+            //            entities.BoekenCursussen.Add(new BoekCursus
+            //            {
+            //                Boek = nieuwBoek,
+            //                Cursus = queryResult.Cursus,
+            //                VolgNr = queryResult.HoogsteVolgNr + 1
+            //            });
+            //            entities.SaveChanges();
+            //        }
+            //        transactionScope.Complete();
+            //    }
+            //}
+
+            //associaties (veel op veel associaties met associatie-informatie): voorbeeld 1
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    var query =
+            //        from cursus in entities.Cursussen.Include("BoekenCursussen.Boek")
+            //        orderby cursus.Naam
+            //        select cursus;
+            //    foreach (var cursus in query)
+            //    {
+            //        Console.WriteLine(cursus.Naam);
+            //        foreach (var boekCursus in cursus.BoekenCursussen)
+            //        {
+            //            Console.WriteLine("\t{0}:{1}", boekCursus.VolgNr, boekCursus.Boek.Titel);
+            //        }
+            //    }
+            //}
+
+            //associaties (veel op veel associaties zonder associatie-informatie): voorbeeld 3
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    var nieuwBoek = new Boek { ISBNNr = "0-0788210-6-1", Titel = "Oracle Backup & Recovery Handbook" };
+            //    var oracleCursus = (from cursus in entities.Cursussen
+            //                        where cursus.Naam == "Oracle"
+            //                        select cursus).FirstOrDefault();
+            //    if (oracleCursus != null)
+            //    {
+            //        oracleCursus.Boeken.Add(nieuwBoek);
+            //        entities.SaveChanges();
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("cursus Oracle niet gevonden");
+            //    }
+            //}
+
+            //associaties (veel op veel associaties zonder associatie-informatie): voorbeeld 2
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    var query = from cursus in entities.Cursussen.Include("Boeken")
+            //                orderby cursus.Naam
+            //                select cursus;
+            //    foreach (var cursus in query)
+            //    {
+            //        Console.WriteLine(cursus.Naam);
+            //        foreach (var boek in cursus.Boeken)
+            //        {
+            //            Console.WriteLine("\t{0}", boek.Titel);
+            //        }
+            //    }
+            //}
+
+            //associaties (veel op veel associaties zonder associatie-informatie): voorbeeld 1
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    var query = from boek in entities.Boeken.Include("Cursussen")
+            //                orderby boek.Titel
+            //                select boek;
+            //    foreach (var boek in query)
+            //    {
+            //        Console.WriteLine(boek.Titel);
+            //        foreach (var cursus in boek.Cursussen)
+            //        {
+            //            Console.WriteLine("\t{0}", cursus.Naam);
+            //        }
+            //    }
+            //}
+            
+            //voorbeeld optimistic record locking
+        //    try
+        //    {
+        //        Console.Write("Artikel nr.: ");
+        //        var artikelNr = int.Parse(Console.ReadLine());
+        //        Console.Write("Magazijn nr.: ");
+        //        var magazijnNr = int.Parse(Console.ReadLine());
+        //        Console.Write("Aantal stuks toevoegen: ");
+        //        var aantalStuks = int.Parse(Console.ReadLine());
+        //        new Program().VoorraadBijvulling(artikelNr, magazijnNr, aantalStuks);
+        //    }
+        //    catch (FormatException)
+        //    {
+        //        Console.WriteLine("Tik een getal");
+        //    }
+        //}
+
+        //public void VoorraadBijvulling(int artikelNr, int magazijnNr, int aantalStuks)
+        //{
+        //    using (var entities = new OpleidingenEntities())
+        //    {
+        //        var voorraad = entities.Voorraden.Find(magazijnNr, artikelNr);
+        //        if (voorraad != null)
+        //        {
+        //            voorraad.AantalStuks += aantalStuks;
+        //            Console.WriteLine("Pas nu de voorraad aan met de Server Explorer, druk daarna op enter");
+        //            Console.ReadLine();
+        //            try
+        //            {
+        //                entities.SaveChanges();
+        //            }
+        //            catch (DbUpdateConcurrencyException)
+        //            {
+        //                Console.WriteLine("Voorraad werd door andere applicatie aangepast");
+        //            }
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine("Voorraad niet gevonden");
+        //        }
+        //    }
 
         //transactions
         //    try
