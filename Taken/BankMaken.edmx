@@ -70,47 +70,17 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BankModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Klant">
-          <Key>
-            <PropertyRef Name="KlantNr" />
-          </Key>
-          <Property Name="KlantNr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" ConcurrencyMode="None" />
-          <Property Name="Voornaam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" ConcurrencyMode="Fixed" />
-          <NavigationProperty Name="Rekeningen" Relationship="Self.FK__Rekeninge__Klant__1273C1CD" FromRole="Klanten" ToRole="Rekeningen" />
-        </EntityType>
-        <EntityType Name="Rekening">
-          <Key>
-            <PropertyRef Name="RekeningNr" />
-          </Key>
-          <Property Name="RekeningNr" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="KlantNr" Type="Int32" Nullable="false" />
-          <Property Name="Saldo" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="Soort" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Klant" Relationship="Self.FK__Rekeninge__Klant__1273C1CD" FromRole="Rekeningen" ToRole="Klanten" />
-        </EntityType>
-        <Association Name="FK__Rekeninge__Klant__1273C1CD">
-          <End Role="Klanten" Type="BankModel.Klant" Multiplicity="1" />
-          <End Role="Rekeningen" Type="BankModel.Rekening" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Klanten">
-              <PropertyRef Name="KlantNr" />
-            </Principal>
-            <Dependent Role="Rekeningen">
-              <PropertyRef Name="KlantNr" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="BankEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Klanten" EntityType="BankModel.Klant" />
-          <EntitySet Name="Rekeningen" EntityType="BankModel.Rekening" />
-          <AssociationSet Name="FK__Rekeninge__Klant__1273C1CD" Association="Self.FK__Rekeninge__Klant__1273C1CD">
-            <End Role="Klanten" EntitySet="Klanten" />
-            <End Role="Rekeningen" EntitySet="Rekeningen" />
-          </AssociationSet>
           <EntitySet Name="Personeel" EntityType="BankModel.Personeelslid" />
           <AssociationSet Name="FK__Personeel__Manag__239E4DCF" Association="BankModel.FK__Personeel__Manag__239E4DCF">
             <End Role="Personeel" EntitySet="Personeel" />
             <End Role="Personeel1" EntitySet="Personeel" />
+          </AssociationSet>
+          <EntitySet Name="Klanten" EntityType="BankModel.Klant" />
+          <EntitySet Name="Rekeningen" EntityType="BankModel.Rekening" />
+          <AssociationSet Name="FK__Rekeninge__Klant__1273C1CD" Association="BankModel.FK__Rekeninge__Klant__1273C1CD">
+            <End Role="Klanten" EntitySet="Klanten" />
+            <End Role="Rekeningen" EntitySet="Rekeningen" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Personeelslid">
@@ -135,30 +105,45 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        <EntityType Name="Klant">
+          <Key>
+            <PropertyRef Name="KlantNr" />
+          </Key>
+          <Property Name="KlantNr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Voornaam" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Rekeningen" Relationship="BankModel.FK__Rekeninge__Klant__1273C1CD" FromRole="Klanten" ToRole="Rekeningen" />
+        </EntityType>
+        <EntityType Name="Rekening" Abstract="true">
+          <Key>
+            <PropertyRef Name="RekeningNr" />
+          </Key>
+          <Property Name="RekeningNr" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="KlantNr" Type="Int32" Nullable="false" />
+          <Property Name="Saldo" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <NavigationProperty Name="Klant" Relationship="BankModel.FK__Rekeninge__Klant__1273C1CD" FromRole="Rekeningen" ToRole="Klanten" />
+        </EntityType>
+        <Association Name="FK__Rekeninge__Klant__1273C1CD">
+          <End Type="BankModel.Klant" Role="Klanten" Multiplicity="1" />
+          <End Type="BankModel.Rekening" Role="Rekeningen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klanten">
+              <PropertyRef Name="KlantNr" />
+            </Principal>
+            <Dependent Role="Rekeningen">
+              <PropertyRef Name="KlantNr" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Spaarrekening" BaseType="BankModel.Rekening">
+          </EntityType>
+        <EntityType Name="Zichtrekening" BaseType="BankModel.Rekening">
+          </EntityType>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="BankModelStoreContainer" CdmEntityContainer="BankEntities">
-          <EntitySetMapping Name="Klanten">
-            <EntityTypeMapping TypeName="BankModel.Klant">
-              <MappingFragment StoreEntitySet="Klanten">
-                <ScalarProperty Name="KlantNr" ColumnName="KlantNr" />
-                <ScalarProperty Name="Voornaam" ColumnName="Voornaam" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Rekeningen">
-            <EntityTypeMapping TypeName="BankModel.Rekening">
-              <MappingFragment StoreEntitySet="Rekeningen">
-                <ScalarProperty Name="RekeningNr" ColumnName="RekeningNr" />
-                <ScalarProperty Name="KlantNr" ColumnName="KlantNr" />
-                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
-                <ScalarProperty Name="Soort" ColumnName="Soort" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Personeel">
             <EntityTypeMapping TypeName="BankModel.Personeelslid">
               <MappingFragment StoreEntitySet="Personeel">
@@ -168,7 +153,36 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          <EntitySetMapping Name="Klanten">
+            <EntityTypeMapping TypeName="BankModel.Klant">
+              <MappingFragment StoreEntitySet="Klanten">
+                <ScalarProperty Name="Voornaam" ColumnName="Voornaam" />
+                <ScalarProperty Name="KlantNr" ColumnName="KlantNr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rekeningen">
+            <EntityTypeMapping TypeName="IsTypeOf(BankModel.Rekening)">
+              <MappingFragment StoreEntitySet="Rekeningen">
+                <ScalarProperty Name="RekeningNr" ColumnName="RekeningNr" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="KlantNr" ColumnName="KlantNr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(BankModel.Zichtrekening)">
+              <MappingFragment StoreEntitySet="Rekeningen">
+                <ScalarProperty Name="RekeningNr" ColumnName="RekeningNr" />
+                <Condition ColumnName="Soort" Value="Z" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(BankModel.Spaarrekening)">
+              <MappingFragment StoreEntitySet="Rekeningen">
+                <ScalarProperty Name="RekeningNr" ColumnName="RekeningNr" />
+                <Condition ColumnName="Soort" Value="S" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

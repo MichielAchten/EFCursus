@@ -25,8 +25,8 @@ namespace Taken
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Personeelslid> Personeel { get; set; }
         public virtual DbSet<Klant> Klanten { get; set; }
         public virtual DbSet<Rekening> Rekeningen { get; set; }
-        public virtual DbSet<Personeelslid> Personeel { get; set; }
     }
 }

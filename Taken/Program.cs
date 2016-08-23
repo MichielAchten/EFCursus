@@ -12,6 +12,18 @@ namespace Taken
     {
         static void Main(string[] args)
         {
+            //1.9 zichtrekeningen - spaarrekeningen
+            using (var entities = new BankEntities())
+            {
+                var query = from rekening in entities.Rekeningen
+                            where rekening is Zichtrekening
+                            select rekening;
+                foreach (var zichtrekening in query)
+                {
+                    Console.WriteLine("{0}: {1}", zichtrekening.RekeningNr, zichtrekening.Saldo);
+                }
+            }
+            
             //1.8 personeel: voorbeeldoplossing
         //    using (var entities = new BankEntities())
         //    {

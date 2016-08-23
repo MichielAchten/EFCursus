@@ -12,12 +12,7 @@ namespace Taken
     using System;
     using System.Collections.Generic;
     
-    public abstract partial class Rekening
+    public partial class Zichtrekening : Rekening
     {
-        public string RekeningNr { get; set; }
-        public int KlantNr { get; set; }
-        public decimal Saldo { get; set; }
-    
-        public virtual Klant Klant { get; set; }
     }
 }

@@ -5,12 +5,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="e8bd8e9505174eaf8e8fedb65fc8a25d" Name="Diagram1">
-        <EntityTypeShape EntityType="BankModel.Klant" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BankModel.Rekening" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <AssociationConnector Association="BankModel.FK__Rekeninge__Klant__1273C1CD" ManuallyRouted="false" />
         <EntityTypeShape EntityType="BankModel.Personeelslid" Width="1.5" PointX="0.75" PointY="3.75" />
         <AssociationConnector Association="BankModel.FK__Personeel__Manag__239E4DCF" />
-      </Diagram>
+        <EntityTypeShape EntityType="BankModel.Klant" Width="1.5" PointX="3.375" PointY="1.125" />
+        <EntityTypeShape EntityType="BankModel.Rekening" Width="1.5" PointX="5.625" PointY="0.875" />
+        <AssociationConnector Association="BankModel.FK__Rekeninge__Klant__1273C1CD" />
+        <EntityTypeShape EntityType="BankModel.Spaarrekening" Width="1.5" PointX="6.375" PointY="4.5" />
+        <EntityTypeShape EntityType="BankModel.Zichtrekening" Width="1.5" PointX="4.125" PointY="4.5" />
+        <InheritanceConnector EntityType="BankModel.Zichtrekening" />
+        <InheritanceConnector EntityType="BankModel.Spaarrekening" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
