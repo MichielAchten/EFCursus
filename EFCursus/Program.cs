@@ -12,6 +12,104 @@ namespace EFCursus
     {
         static void Main(string[] args)
         {
+
+
+            //inheritance (TPT) voorbeeld 3
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    entities.Cursussen.Add(new ZelfstudieCursus { Naam = "Italiaanse correspondentie", Duurtijd = 6 });
+            //    entities.SaveChanges();
+            //}
+            
+            //inheritance (TPT) voorbeeld 2
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    var query = from cursus in entities.Cursussen
+            //                where !(cursus is ZelfstudieCursus)
+            //                orderby cursus.Naam
+            //                select cursus;
+            //    foreach (var cursus in query)
+            //    {
+            //        Console.WriteLine(cursus.Naam);
+            //    }
+            //}
+            
+            //inheritance (TPT) voorbeeld 1
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    var query = from cursus in entities.Cursussen
+            //                orderby cursus.Naam
+            //                select cursus;
+            //    foreach (var cursus in query)
+            //    {
+            //        Console.WriteLine("{0}: {1}", cursus.Naam, cursus.GetType().Name);
+            //    }
+            //}
+            
+            //inheritance (TPH) voorbeeld 3
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    entities.Cursussen.Add(new ZelfstudieCursus { Naam = "Duitse correspontentie", Duurtijd = 6 });
+            //    entities.SaveChanges();
+            //}
+            
+            //inheritance (TPH) voorbeeld 2
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    var query = from cursus in entities.Cursussen
+            //                where cursus is ZelfstudieCursus
+            //                orderby cursus.Naam
+            //                select cursus;
+            //    foreach (var cursus in query)
+            //    {
+            //        Console.WriteLine(cursus.Naam);
+            //    }
+            //}
+            
+            //inheritance (TPH) voorbeeld 1
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    var query = from cursus in entities.Cursussen
+            //                orderby cursus.Naam
+            //                select cursus;
+            //    foreach (var cursus in query)
+            //    {
+            //        Console.WriteLine("{0}: {1}", cursus.Naam, cursus.GetType().Name);
+            //    }
+            //}
+            
+            //inheritance (TPC) voorbeeld 3
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    entities.Cursussen.Add(new ZelfstudieCursus { Naam = "Spaanse Correspondentie", Duurtijd = 6 });
+            //    entities.SaveChanges();
+            //}
+
+            //inheritance (TPC) voorbeeld 2
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    var query = from cursus in entities.Cursussen
+            //                where cursus is KlassikaleCursus
+            //                orderby cursus.Naam
+            //                select cursus;
+            //    foreach (var cursus in query)
+            //    {
+            //        Console.WriteLine(cursus.Naam);
+            //    }
+            //}
+            
+            //inheritance (TPC) voorbeeld 1
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    var query = from cursus in entities.Cursussen
+            //                orderby cursus.Naam
+            //                select cursus;
+            //    foreach (var cursus in query)
+            //    {
+            //        Console.WriteLine(cursus.Naam + ' ' + cursus.GetType().Name);
+            //    }
+            //}
+            
             //associaties (van een entity class naar zichzelf): voorbeeld 4
             //using (var entities = new OpleidingenEntities())
             //{
