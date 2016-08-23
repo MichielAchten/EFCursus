@@ -12,7 +12,16 @@ namespace EFCursus
     {
         static void Main(string[] args)
         {
-
+            
+            
+            //complex types
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    foreach (var cursist in (from eenCursist in entities.Cursisten select eenCursist))
+            //    {
+            //        Console.WriteLine(cursist.Naam.InformeleBegroeting);
+            //    }
+            //}
 
             //inheritance (TPT) voorbeeld 3
             //using (var entities = new OpleidingenEntities())

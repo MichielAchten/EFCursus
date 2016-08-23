@@ -17,12 +17,13 @@ namespace EFCursus
         public Cursist()
         {
             this.Beschermelingen = new HashSet<Cursist>();
+            this.Naam = new Naam();
         }
     
         public int CursistNr { get; set; }
-        public string Voornaam { get; set; }
-        public string Familienaam { get; set; }
         public Nullable<int> MentorNr { get; set; }
+    
+        public Naam Naam { get; set; }
     
         public virtual ICollection<Cursist> Beschermelingen { get; set; }
         public virtual Cursist Mentor { get; set; }
