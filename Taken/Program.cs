@@ -12,34 +12,80 @@ namespace Taken
     {
         static void Main(string[] args)
         {
+            //1.8 personeel: voorbeeldoplossing
+        //    using (var entities = new BankEntities())
+        //    {
+        //        var hoogstenInHierarchie = (from personeelslid in entities.Personeel
+        //                                    where personeelslid.Manager == null
+        //                                    select personeelslid).ToList();
+        //        new Program().Afbeelden(hoogstenInHierarchie, 0);
+        //    }
+        //}
+        //public void Afbeelden(List<Personeelslid> personeel, int insprong)
+        //{
+        //    foreach (var personeelslid in personeel)
+        //    {
+        //        Console.Write(new string('\t', insprong));
+        //        Console.WriteLine(personeelslid.Voornaam);
+        //        if (personeelslid.Ondergeschikten.Count != 0)
+        //        {
+        //            Afbeelden(personeelslid.Ondergeschikten.ToList(), insprong + 1);
+        //        }
+        //    }
+
+            //1.8 personeel: eigen oplossing
+            //using (var entities = new BankEntities())
+            //{
+            //    var query = from personeelslid in entities.Personeel.Include("Ondergeschikten")
+            //                where personeelslid.ManagerNr == null
+            //                orderby personeelslid.Voornaam
+            //                select personeelslid;
+            //    foreach (var manager in query)
+            //    {
+            //        Console.WriteLine("{0}", manager.Voornaam);
+            //        foreach (var ondergeschikte in manager.Ondergeschikten)
+            //        {
+            //            Console.WriteLine("\t{0}", ondergeschikte.Voornaam);
+            //            foreach (var ondergeschikte2 in ondergeschikte.Ondergeschikten)
+            //            {
+            //                Console.WriteLine("\t\t{0}", ondergeschikte2.Voornaam);
+            //                foreach (var ondergeschikte3 in ondergeschikte2.Ondergeschikten)
+            //                {
+            //                    Console.WriteLine("\t\t\t{0}", ondergeschikte3.Voornaam);
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
+            
             //1.7 klant wijzigen: voorbeeldoplossing
-            Console.Write("KlantNr: ");
-            try
-            {
-                var klantNr = int.Parse(Console.ReadLine());
-                using (var entities = new BankEntities())
-                {
-                    var klant = entities.Klanten.Find(klantNr);
-                    if (klant == null)
-                    {
-                        Console.WriteLine("Klant niet gevonden");
-                    }
-                    else
-                    {
-                        Console.Write("Voornaam: ");
-                        klant.Voornaam = Console.ReadLine();
-                        entities.SaveChanges();
-                    }
-                }
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                Console.WriteLine("Een andere gebruiker wijzigde deze klant");
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("Tik een getal");
-            }
+            //Console.Write("KlantNr: ");
+            //try
+            //{
+            //    var klantNr = int.Parse(Console.ReadLine());
+            //    using (var entities = new BankEntities())
+            //    {
+            //        var klant = entities.Klanten.Find(klantNr);
+            //        if (klant == null)
+            //        {
+            //            Console.WriteLine("Klant niet gevonden");
+            //        }
+            //        else
+            //        {
+            //            Console.Write("Voornaam: ");
+            //            klant.Voornaam = Console.ReadLine();
+            //            entities.SaveChanges();
+            //        }
+            //    }
+            //}
+            //catch (DbUpdateConcurrencyException)
+            //{
+            //    Console.WriteLine("Een andere gebruiker wijzigde deze klant");
+            //}
+            //catch (FormatException)
+            //{
+            //    Console.WriteLine("Tik een getal");
+            //}
             
             //1.7 klant wijzigen: eigen oplossing
             //Console.Write("KlantNr.: ");
