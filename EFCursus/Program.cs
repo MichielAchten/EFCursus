@@ -12,8 +12,6 @@ namespace EFCursus
     {
         static void Main(string[] args)
         {
-            
-            
             //complex types
             //using (var entities = new OpleidingenEntities())
             //{
