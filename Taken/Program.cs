@@ -12,17 +12,43 @@ namespace Taken
     {
         static void Main(string[] args)
         {
+            //1.10 totale saldo per klant: voorbeeldoplossing
+            //using (var entities = new BankEntities())
+            //{
+            //    var query = from totaleSaldoPerKlant in entities.TotaleSaldosPerKlant
+            //                orderby totaleSaldoPerKlant.Voornaam
+            //                select totaleSaldoPerKlant;
+            //    foreach (var totaleSaldoPerKlant in query)
+            //    {
+            //        Console.WriteLine("{0}: {1}", totaleSaldoPerKlant.Voornaam, totaleSaldoPerKlant.TotaleSaldo);
+            //    }
+            //}
+            
+            //1.10 totale saldo per klant: eigen oplossing
+            //using (var entities = new BankEntities())
+            //{
+            //    var query = from totaleSaldoPerKlant in entities.TotaleSaldosPerKlant
+            //                orderby totaleSaldoPerKlant.KlantNr,
+            //                    totaleSaldoPerKlant.Voornaam
+            //                select totaleSaldoPerKlant;
+            //    foreach (var klant in query)
+            //    {
+            //        Console.WriteLine("{0}: {1}", klant.Voornaam, 
+            //            (klant.TotaleSaldo != null ? klant.TotaleSaldo.ToString() : "Deze klant heeft geen rekening"));
+            //    }
+            //}
+            
             //1.9 zichtrekeningen - spaarrekeningen
-            using (var entities = new BankEntities())
-            {
-                var query = from rekening in entities.Rekeningen
-                            where rekening is Zichtrekening
-                            select rekening;
-                foreach (var zichtrekening in query)
-                {
-                    Console.WriteLine("{0}: {1}", zichtrekening.RekeningNr, zichtrekening.Saldo);
-                }
-            }
+            //using (var entities = new BankEntities())
+            //{
+            //    var query = from rekening in entities.Rekeningen
+            //                where rekening is Zichtrekening
+            //                select rekening;
+            //    foreach (var zichtrekening in query)
+            //    {
+            //        Console.WriteLine("{0}: {1}", zichtrekening.RekeningNr, zichtrekening.Saldo);
+            //    }
+            //}
             
             //1.8 personeel: voorbeeldoplossing
         //    using (var entities = new BankEntities())
