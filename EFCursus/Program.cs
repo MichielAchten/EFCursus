@@ -12,6 +12,44 @@ namespace EFCursus
     {
         static void Main(string[] args)
         {
+            //views
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    var query = from bestBetaaldeDocentPerCampus in entities.BestBetaaldeDocentenPerCampus
+            //                orderby bestBetaaldeDocentPerCampus.CampusNr,
+            //                    bestBetaaldeDocentPerCampus.Voornaam,
+            //                    bestBetaaldeDocentPerCampus.Familienaam
+            //                select bestBetaaldeDocentPerCampus;
+            //    var vorigCampusNr = 0;
+            //    foreach (var bestBetaaldeDocentPerCampus in query)
+            //    {
+            //        if (bestBetaaldeDocentPerCampus.CampusNr != vorigCampusNr)
+            //        {
+            //            Console.WriteLine("{0} {1} Grootste wedde: ", bestBetaaldeDocentPerCampus.Naam, bestBetaaldeDocentPerCampus.GrootsteWedde);
+            //            vorigCampusNr = bestBetaaldeDocentPerCampus.CampusNr;
+            //        }
+            //        Console.WriteLine("\t{0} {1}", bestBetaaldeDocentPerCampus.Voornaam, bestBetaaldeDocentPerCampus.Familienaam);
+            //    }
+            //}
+            
+            //enums voorbeeld 2
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    entities.Docenten.Add(
+            //        new Docent { Naam = new Naam { Voornaam = "Brigitta", Familienaam = "Roos" },
+            //            Wedde = 2000, Geslacht = Geslacht.Vrouw, CampusNr = 1 });
+            //    entities.SaveChanges();
+            //}
+
+            //enums voorbeeld 1
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    foreach (var docent in entities.Docenten)
+            //    {
+            //        Console.WriteLine("{0}:{1}", docent.Naam, docent.Geslacht);
+            //    }
+            //}
+            
             //complex types
             //using (var entities = new OpleidingenEntities())
             //{

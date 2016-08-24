@@ -12,20 +12,13 @@ namespace EFCursus
     using System;
     using System.Collections.Generic;
     
-    public partial class Docent
+    public partial class BestBetaaldeDocentPerCampus
     {
-        public Docent()
-        {
-            this.Naam = new Naam();
-        }
-    
-        public int DocentNr { get; set; }
-        public decimal Wedde { get; set; }
         public int CampusNr { get; set; }
-        public Nullable<Geslacht> Geslacht { get; set; }
-    
-        public Naam Naam { get; set; }
-    
-        public virtual Campus Campus { get; set; }
+        public string Naam { get; set; }
+        public Nullable<decimal> GrootsteWedde { get; set; }
+        public int DocentNr { get; set; }
+        public string Voornaam { get; set; }
+        public string Familienaam { get; set; }
     }
 }
