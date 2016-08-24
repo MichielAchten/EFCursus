@@ -12,6 +12,89 @@ namespace EFCursus
     {
         static void Main(string[] args)
         {
+            //stored procedures voorbeeld 4
+            //Console.Write("Familienaam: ");
+            //var familienaam = Console.ReadLine();
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    var aantalDocenten = entities.AantalDocentenMetFamilienaam(familienaam);
+            //    Console.WriteLine("{0} docent(en)", aantalDocenten.First());
+            //}
+            
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    var query = from docent in entities.Docenten
+            //                select docent;
+            //    foreach (var docent in query)
+            //    {
+            //        int wedde = (int)docent.Wedde;
+            //        int bovengrens = 0;
+            //        int ondergrens = 0;
+            //        int teller = wedde;
+            //        for (int i = teller; i < teller + 100; i++)
+            //        {
+            //            if (i % 100 == 0)
+            //            {
+            //                bovengrens = i;
+            //                break;
+            //            }
+            //        }
+            //        teller = wedde;
+            //        for (int i = teller; i > teller - 100; i--)
+            //        {
+            //            if (i % 100 == 0)
+            //            {
+            //                ondergrens = i;
+            //                break;
+            //            }
+            //        }
+            //        if ((bovengrens - wedde) < (wedde - ondergrens))
+            //        {
+            //            wedde = bovengrens;
+            //        }
+            //        else
+            //        {
+            //            wedde = ondergrens;
+            //        }
+            //        docent.Wedde = (decimal)wedde;
+            //    }
+            //    entities.SaveChanges();
+            //}
+            
+            //stored procedures voorbeeld 3
+            //Console.Write("Opslagpercentage: ");
+            //decimal percentage;
+            //if (decimal.TryParse(Console.ReadLine(), out percentage))
+            //{
+            //    using (var entities = new OpleidingenEntities())
+            //    {
+            //        var aantalDocentenAangepast = entities.WeddeVerhoging(percentage);
+            //        Console.WriteLine("{0} docenten aangepast", aantalDocentenAangepast);
+            //    }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Tik een getal");
+            //}
+            
+            //stored procedures voorbeeld 2
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    foreach (var voornaamAantal in entities.AantalDocentenPerVoornaam())
+            //    {
+            //        Console.WriteLine("{0} {1}", voornaamAantal.Voornaam, voornaamAantal.Aantal);
+            //    }
+            //}
+            
+            //stored procedures voorbeeld 1
+            //using (var entities = new OpleidingenEntities())
+            //{
+            //    foreach (var campus in entities.CampussenVanTotPostCode("8000", "8999"))
+            //    {
+            //        Console.WriteLine("{0}: {1}", campus.Naam, campus.PostCode);
+            //    }
+            //}
+            
             //views
             //using (var entities = new OpleidingenEntities())
             //{
