@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCursus", "EFCursus\EFCurs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taken", "Taken\Taken.csproj", "{67E756DC-72BA-4081-BD82-742F6D31179B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFirstCursus", "CodeFirstCursus\CodeFirstCursus.csproj", "{BBD32967-D49D-4DBD-8B70-161C99BDCC98}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{67E756DC-72BA-4081-BD82-742F6D31179B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67E756DC-72BA-4081-BD82-742F6D31179B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67E756DC-72BA-4081-BD82-742F6D31179B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBD32967-D49D-4DBD-8B70-161C99BDCC98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBD32967-D49D-4DBD-8B70-161C99BDCC98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBD32967-D49D-4DBD-8B70-161C99BDCC98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBD32967-D49D-4DBD-8B70-161C99BDCC98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
