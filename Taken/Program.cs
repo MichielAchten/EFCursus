@@ -12,6 +12,39 @@ namespace Taken
     {
         static void Main(string[] args)
         {
+            
+
+            //1.11 administratieve kost: voorbeeldoplossing
+            //try
+            //{
+            //    Console.Write("Kost: ");
+            //    var kost = decimal.Parse(Console.ReadLine());
+            //    using (var entities = new BankEntities())
+            //    {
+            //        Console.WriteLine("{0} rekenigen aangepast", entities.AdministratieveKost(kost));
+            //    }
+            //}
+            //catch (FormatException)
+            //{
+            //    Console.WriteLine("Tik een getal");
+            //}
+
+            //1.11 administratieve kost: eigen oplossing
+            //Console.Write("Kost: ");
+            //decimal kost;
+            //if (decimal.TryParse(Console.ReadLine(), out kost))
+            //{
+            //    using (var entities = new BankEntities())
+            //    {
+            //        var aantalRekeningenAangepast = entities.AdministratieveKost(kost);
+            //        Console.WriteLine("{0} rekening(en) aangepast", aantalRekeningenAangepast);
+            //    }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Tik een getal");
+            //}
+           
             //1.10 totale saldo per klant: voorbeeldoplossing
             //using (var entities = new BankEntities())
             //{
